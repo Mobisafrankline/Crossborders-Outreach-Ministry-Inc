@@ -99,22 +99,20 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6">
-
         {/* ===== TOP ROW ===== */}
         <div className="flex items-center justify-between pb-2 border-b border-gray-100">
           {/* Logo */}
-{/* Logo */}
-<a href="/" className="flex items-center gap-3 group">
-  <img
-    src="/logo.png" // <-- your logo in public folder
-    alt="Crossborders Outreach Logo"
-    className="w-12 h-12 object-contain"
-  />
-  <div className="hidden sm:block">
-    <div className="font-bold text-gray-900 text-lg leading-tight">Crossborders Outreach</div>
-    <div className="text-xs text-gray-600">Ministry Inc</div>
-  </div>
-</a>
+          <a href="/" className="flex items-center gap-3 group">
+            <img
+              src="/logo.png"
+              alt="Crossborders Outreach Logo"
+              className="w-12 h-12 object-contain"
+            />
+            <div className="hidden sm:block">
+              <div className="font-bold text-gray-900 text-lg leading-tight">Crossborders Outreach</div>
+              <div className="text-xs text-gray-600">Ministry Inc</div>
+            </div>
+          </a>
 
           {/* Utilities */}
           <div className="hidden lg:flex items-center gap-4">
@@ -145,7 +143,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* ===== BOTTOM ROW NAV ===== */}
+        {/* ===== BOTTOM ROW NAV (Desktop) ===== */}
         <div className="hidden lg:flex items-center justify-center gap-8 pt-2">
           {navItems.map((item) => (
             <div
@@ -191,6 +189,79 @@ export default function Navbar() {
           ))}
         </div>
 
+        {/* ===== MOBILE MENU ===== */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="lg:hidden overflow-hidden"
+            >
+              <div className="flex flex-col gap-1 mt-2 pb-4 border-t border-gray-200">
+                {navItems.map((item) => (
+                  <div key={item.label} className="flex flex-col">
+                    {item.dropdown ? (
+                      <>
+                        <button
+                          onClick={() => toggleMobileDropdown(item.label)}
+                          className="flex justify-between items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md font-medium"
+                        >
+                          {item.label}
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform ${activeMobileDropdown === item.label ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                        <AnimatePresence>
+                          {activeMobileDropdown === item.label && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="flex flex-col ml-4 mt-1 overflow-hidden"
+                            >
+                              {item.dropdown.map((dropdownItem) => (
+                                <a
+                                  key={dropdownItem.label}
+                                  href={dropdownItem.href}
+                                  className="px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+                                >
+                                  {dropdownItem.label}
+                                </a>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+                      >
+                        {item.label}
+                      </a>
+                    )}
+                  </div>
+                ))}
+
+                {/* Mobile utilities */}
+                <div className="flex flex-col gap-2 mt-4 px-4">
+                  <button
+                    onClick={() => setLanguage(language === "EN" ? "ES" : "EN")}
+                    className="flex items-center gap-2 text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md"
+                  >
+                    <Globe className="w-4 h-4" /> {language}
+                  </button>
+                  <a href="/publications" className="px-3 py-2 text-gray-700 hover:text-blue-600 rounded-md">Publications</a>
+                  <a href="/login" className="px-3 py-2 text-gray-700 hover:text-blue-600 rounded-md">Login</a>
+                  <a href="/donate" className="px-3 py-2 bg-orange-500 text-white rounded-md text-center font-semibold hover:bg-orange-600">
+                    Donate Now
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

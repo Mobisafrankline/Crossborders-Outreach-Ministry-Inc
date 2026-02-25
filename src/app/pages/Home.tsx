@@ -1,4 +1,4 @@
-import { Heart, Users, TrendingUp, Globe, ArrowRight, CheckCircle2, Quote } from "lucide-react";
+import { Heart, Users, Globe, CheckCircle2, ArrowRight, Quote } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 export default function Home() {
@@ -13,25 +13,25 @@ export default function Home() {
     {
       title: "Food Support",
       description: "Providing nutritious meals and food security to families in need across multiple communities.",
-      image: "https://images.unsplash.com/photo-1710092784814-4a6f158913b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb29kJTIwZGlzdHJpYnV0aW9uJTIwY2hhcml0eSUyMHZvbHVudGVlcnN8ZW58MXx8fHwxNzcxOTk2NjkzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.unsplash.com/photo-1710092784814-4a6f158913b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       link: "/food-support"
     },
     {
       title: "Education Support",
       description: "Empowering children through quality education, school supplies, and learning resources.",
-      image: "https://images.unsplash.com/photo-1770843093640-c44ae557928b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMHN0dWR5aW5nJTIwZWR1Y2F0aW9uJTIwQWZyaWNhfGVufDF8fHx8MTc3MTk5NjY5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.unsplash.com/photo-1770843093640-c44ae557928b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       link: "/education"
     },
     {
       title: "Healthcare Outreach",
       description: "Delivering essential medical care, preventive health services, and wellness programs.",
-      image: "https://images.unsplash.com/photo-1770221797840-8f5a095ad7ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBoZWFsdGhjYXJlJTIwbWVkaWNhbCUyMG91dHJlYWNofGVufDF8fHx8MTc3MTk5NjY5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.unsplash.com/photo-1770221797840-8f5a095ad7ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       link: "/healthcare"
     },
     {
       title: "Economic Empowerment",
       description: "Creating sustainable livelihoods through skills training and microfinance support.",
-      image: "https://images.unsplash.com/photo-1752650736246-abae155278be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGVudHJlcHJlbmV1ciUyMHNtYWxsJTIwYnVzaW5lc3N8ZW58MXx8fHwxNzcxOTk2Njk0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "https://images.unsplash.com/photo-1752650736246-abae155278be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       link: "/economic"
     }
   ];
@@ -56,17 +56,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1764738130382-cc7a8eaf26c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxodW1hbml0YXJpYW4lMjBhaWQlMjB2b2x1bnRlZXJzJTIwaGVscGluZyUyMGNvbW11bml0eXxlbnwxfHx8fDE3NzE5OTY2OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Volunteers helping community"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/70" />
-        </div>
-        
+        <ImageWithFallback
+          src="https://images.unsplash.com/photo-1764738130382-cc7a8eaf26c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+          alt="Volunteers helping community"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/70" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Transforming Lives Through Compassion
@@ -98,10 +96,10 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
+            {stats.map((stat, idx) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="text-center">
+                <div key={idx} className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
                     <Icon className="w-8 h-8 text-blue-600" />
                   </div>
@@ -126,8 +124,8 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {programs.map((program, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+            {programs.map((program, idx) => (
+              <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
                 <div className="h-64 overflow-hidden">
                   <ImageWithFallback
                     src={program.image}
@@ -154,50 +152,43 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Partner With Us</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                At Crossborders Outreach Ministry, we believe in transparency, sustainability, 
-                and community-driven solutions. Every dollar you contribute goes directly to 
-                creating meaningful, lasting change.
-              </p>
-              
-              <div className="space-y-4">
-                {[
-                  "100% transparency in fund allocation",
-                  "Community-driven sustainable solutions",
-                  "Experienced team with local partnerships",
-                  "Regular impact reports and updates",
-                  "Tax-deductible contributions"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-8">
-                <a
-                  href="/mission"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Learn About Our Mission
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </div>
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Partner With Us</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              At Crossborders Outreach Ministry, we believe in transparency, sustainability, 
+              and community-driven solutions. Every dollar you contribute goes directly to 
+              creating meaningful, lasting change.
+            </p>
+            <div className="space-y-4">
+              {[
+                "100% transparency in fund allocation",
+                "Community-driven sustainable solutions",
+                "Experienced team with local partnerships",
+                "Regular impact reports and updates",
+                "Tax-deductible contributions"
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">{item}</span>
+                </div>
+              ))}
             </div>
-            
-            <div className="relative">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1585984968562-1443b72fb0dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwdGVhbSUyMGNvbGxhYm9yYXRpb24lMjBub25wcm9maXR8ZW58MXx8fHwxNzcxOTI1NzQwfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Our team"
-                className="rounded-xl shadow-2xl"
-              />
+            <div className="mt-8">
+              <a
+                href="/mission"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Learn About Our Mission
+                <ArrowRight className="w-5 h-5" />
+              </a>
             </div>
           </div>
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1585984968562-1443b72fb0dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+            alt="Our team"
+            className="rounded-xl shadow-2xl"
+          />
         </div>
       </section>
 
@@ -211,15 +202,14 @@ export default function Home() {
               through our programs.
             </p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-md">
+            {testimonials.map((t, idx) => (
+              <div key={idx} className="bg-white rounded-xl p-8 shadow-md">
                 <Quote className="w-10 h-10 text-blue-600 mb-4" />
-                <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
+                <p className="text-gray-700 mb-6 italic">"{t.quote}"</p>
                 <div>
-                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.role}</div>
+                  <div className="font-semibold text-gray-900">{t.author}</div>
+                  <div className="text-sm text-gray-600">{t.role}</div>
                 </div>
               </div>
             ))}
@@ -230,9 +220,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto px-6 text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Make a Difference?
-          </h2>
+          <h2 className="text-4xl font-bold mb-6">Ready to Make a Difference?</h2>
           <p className="text-xl mb-8 opacity-95">
             Your support can transform lives and create lasting change in communities around the world. 
             Join us today in our mission to serve those in need.
@@ -253,6 +241,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }
